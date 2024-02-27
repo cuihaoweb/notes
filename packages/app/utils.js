@@ -1,3 +1,6 @@
+import {inBrowser} from 'vitepress'
+import {sanitizeFileName} from '../shared/'
+
 /**
  * Converts a url path to the corresponding js chunk filename.
  */
