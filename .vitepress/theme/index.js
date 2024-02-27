@@ -1,7 +1,3 @@
-import DefaultTheme from 'vitepress/theme'
-import MyLayout from './modules/MyLayout.vue';
+import theme from '@notes/theme';
 
-export default {
-    extends: DefaultTheme,
-    Layout: MyLayout
-}
+export default theme;

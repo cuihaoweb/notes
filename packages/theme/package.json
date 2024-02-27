@@ -1,0 +1,9 @@
+{
+  "name": "@notes/theme",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "useFocusTrap": "link:@vueuse/integrations/useFocusTrap"
+  }
+}
