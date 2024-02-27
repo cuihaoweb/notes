@@ -1,43 +1,43 @@
 {
-  "hash": "64d25a2a",
-  "configHash": "60c22951",
-  "lockfileHash": "f6816174",
-  "browserHash": "eeff710c",
+  "hash": "58ce12ff",
+  "configHash": "21550417",
+  "lockfileHash": "789ca230",
+  "browserHash": "0dd76d0e",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/.pnpm/vue@3.4.20/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "0f67874e",
+      "fileHash": "08db350a",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/.pnpm/@vue+devtools-api@7.0.15_vue@3.4.20/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "a45f0e02",
+      "fileHash": "83aae600",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/.pnpm/@vueuse+core@10.8.0_vue@3.4.20/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "39d38b5b",
+      "fileHash": "a785381c",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../node_modules/.pnpm/@vueuse+integrations@10.8.0_focus-trap@7.5.4_vue@3.4.20/node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "156c0c62",
+      "fileHash": "16485221",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../node_modules/.pnpm/mark.js@8.11.1/node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "4b0ac81d",
+      "fileHash": "cb2d9dc9",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../node_modules/.pnpm/minisearch@6.3.0/node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "8bdf3b41",
+      "fileHash": "0ed88c91",
       "needsInterop": false
     }
   },

@@ -1,6 +1,6 @@
 import { createContentLoader } from 'vitepress';
 
-export default createContentLoader(['src/qa/**/*.md'], {
+export default createContentLoader(['src/(qa|articles)/**/*.md'], {
     includeSrc: true,
     render: true,
     excerpt: true,

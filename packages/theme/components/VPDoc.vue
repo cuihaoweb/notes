@@ -50,6 +50,13 @@ const pageName = computed(() =>
                 theme.externalLinkIcon && 'external-link-icon-enabled'
               ]"
             />
+            <Content
+              class="vp-doc"
+              :class="[
+                pageName,
+                theme.externalLinkIcon && 'external-link-icon-enabled'
+              ]"
+            />
           </main>
           <VPDocFooter>
             <template #doc-footer-before><slot name="doc-footer-before" /></template>

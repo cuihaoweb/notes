@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/vue": "^2.0.0",
+    "sass": "^1.71.1",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-element-plus": "^0.8.0",
     "unplugin-vue-components": "^0.26.0",

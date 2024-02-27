@@ -7,5 +7,3 @@ hero:
   text: "A VitePress Site"
   tagline: My great project tagline
 ---
-
-# hello world

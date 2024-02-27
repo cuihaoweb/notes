@@ -15,7 +15,7 @@ import Layout from './Layout.vue'
 const theme = {
   Layout,
   enhanceApp: ({ app }) => {
-    app.component('Badge', VPBadge)
+    app.component('VPBadge', VPBadge)
   }
 }
 
