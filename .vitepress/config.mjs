@@ -17,6 +17,10 @@ export default (data) => {
     assetsDir: './assets',
     outDir: './dist',
 
+    sitemap: {
+      hostname: 'https://notes.chdl.fun',
+    },
+
     // 页面布局相关
     lastUpdated: true,
     title: 'ch-notes',
