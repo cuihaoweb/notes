@@ -1,3 +1,4 @@
+# 清理缓存: git rm -r --cached .
 /coverage
 
 *.log
