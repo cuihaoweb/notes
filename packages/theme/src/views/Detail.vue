@@ -4,8 +4,7 @@
 
 
 <template>
-    <!-- <VPContent></VPContent> -->
-    <Content></Content>
+    <Content class="vp-doc"></Content>
 </template>
 
 

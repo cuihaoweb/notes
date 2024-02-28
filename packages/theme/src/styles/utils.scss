@@ -75,3 +75,14 @@
         }
     }
 }
+
+.scroll {
+    $directions: (row: x, col: y);
+
+    @each $key, $value in $directions {
+        &-#{$key} {
+            overflow: hidden;
+            overflow-#{$value}: scroll;
+        }
+    }
+}

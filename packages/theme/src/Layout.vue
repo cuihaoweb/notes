@@ -9,14 +9,14 @@ const { frontmatter } = useData()
 </script>
 
 <template>
-    <div class="layout-root-wrapper">
+    <div class="layout-root-wrapper flex-col scroll-col">
         <Header></Header>
-		
-        <ElRow style="flex: 1;" justify="center">
+
+        <ElRow class="flex-1 w-full" justify="center">
             <ElCol :xs="0" :sm="5"><div style="position: fixed;">sider</div></ElCol>
 
             <ElCol :xs="24" :sm="14">
-				<div style="padding: 20px 0;">
+				<div style="padding: 20px 0;" class="scroll-col">
 					<Home v-if="frontmatter.layout === 'home'"></Home>
 					<Detail v-else-if="frontmatter.layout === 'detail'"></Detail>
 					<Content v-else style="padding: 20px 0;" class="vp-doc"></Content>
@@ -36,9 +36,5 @@ const { frontmatter } = useData()
 	box-sizing: border-box;
 	width: 100vw;
 	min-height: 100vh;
-	overflow: hidden;
-	overflow-y: scroll;
-	display: flex;
-	flex-flow: column nowrap;
 }
 </style>
