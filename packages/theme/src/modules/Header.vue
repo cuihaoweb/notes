@@ -2,15 +2,18 @@
 import { useData } from 'vitepress';
 import VPNavBarSearch from '../components/VPNavBarSearch.vue';
 import SearchBox from '../components/SearchBox.vue';
+import Link from '../components/Link.vue';
 
-const { theme, title } = useData();
+const { theme, title, site } = useData();
 </script>
 
 <template>
     <header class="header-root">
         <div class="header">
-            <img class="logo" :src="theme.logo" />
-            <div class="title">{{ title }}</div>
+            <Link class="flex-row space-row-small" href="/">
+                <img class="logo" :src="theme.logo" />
+                <div class="title">{{ site.title }}</div>
+            </Link>
             <SearchBox></SearchBox>
             <ul class="nav-list">
                 <li class="nav-item"><nav></nav></li>

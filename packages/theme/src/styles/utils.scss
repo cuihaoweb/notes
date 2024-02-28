@@ -1,0 +1,77 @@
+.flex {
+    $directions: (row: row, col: column);
+
+    @each $key, $value in $directions {
+        &-#{$key} {
+            display: flex;
+            flex-flow: $value nowrap;
+            align-items: center;
+
+            &:nth-child(n) {
+                flex-shrink: 1;
+            }
+        }
+    }
+
+    &-1 {
+        flex: 1;
+    }
+
+    &-start {
+        align-items: flex-start;
+    }
+
+    &.gap {
+        $space: (small: 8px, normal: 10px, large: 20px);
+    }
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.space {
+    $directions: (row: left, col: top);
+    $spaces: (small: 6px, normal: 10px, large: 20px);
+    $default-rol-space: map-get($spaces, normal);
+    $default-row-space: map-get($spaces, normal);
+
+    @each $i, $direction in $directions {
+        $default-space: if($i == row, $default-row-space, $default-rol-space);
+        &-#{$i} > *:nth-child(n + 2) {
+            margin-#{$direction}: $default-space;
+        }
+
+        @each $j, $space in $spaces {
+            &-#{$i}-#{$j} > *:nth-child(n + 2) {
+                margin-#{$direction}: $space;
+            }
+        }
+    }
+}
+
+.m-list  {
+    $padding-col: (small: 8px, normal: 10px, large: 20px);
+    $padding-row: (small: 8px, normal: 10px, large: 20px);
+    $item-margin-top: (small: 10px, normal: 20px, large: 30px);
+
+    padding: map-get($padding-col, normal) map-get($padding-row, normal);
+    @each $key, $value in $padding-col {
+        &-#{$key} {
+            padding: $value map-get($padding-row, $key);
+        }
+    }
+
+    & .m-item + .m-item {
+        margin-top: map-get($map: $item-margin-top, $key: normal);
+    }
+    @each $key, $value in $item-margin-top {
+        & .m-item-#{$key} + .m-item-#{$key} {
+            margin-top: $value;
+        }
+    }
+}

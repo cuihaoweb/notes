@@ -1,0 +1,51 @@
+.m-img {
+    $size: (small: 60px, normal: 100px, large: 200px);
+    $default-size: map-get($size, normal);
+
+    width: $default-size;
+    height: $default-size;
+    object-fit: cover;
+
+    @each $key, $value in $size {
+        &-#{$key} {
+            width: $value;
+            height: $value;
+            object-fit: cover;
+        }
+    }
+}
+
+.m-article {
+    $prefix: '.m-article';
+
+    &-title {
+        color: var(--vp-c-text-1);
+        font-size: var(--m-s-text-1);
+    }
+
+    &-sub-title {
+        color: var(--vp-c-text-2);
+        font-size: var(--m-s-text-2);
+    }
+
+    &-title,
+    &-sub-title {
+        &:hover {
+            color: var(--vp-c-text-2);
+        }
+
+        & + #{$prefix}-desc {
+            margin-top: 10px;
+        }
+    }
+
+    &-desc {
+        color: var(--vp-c-text-3);
+        font-size: var(--m-s-text-3);
+    }
+
+    &-tag {
+        color: var(--vp-c-text-3);
+        font-size: var(--m-s-text-3);
+    }
+}

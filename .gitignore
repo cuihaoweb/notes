@@ -1,3 +1,14 @@
-node_modules
+/coverage
+
+*.log
+*.tgz
+
+.DS_Store
+.temp
+.vite_opt_cache
 
 cache
+temp
+examples-temp
+node_modules
+pnpm-global
