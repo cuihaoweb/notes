@@ -1,5 +1,5 @@
 .m-img {
-    $size: (small: 60px, normal: 100px, large: 200px);
+    $size: (small: 60px, normal: 80px, large: 100px);
     $default-size: map-get($size, normal);
 
     width: $default-size;
@@ -15,17 +15,70 @@
     }
 }
 
+.m-logo {
+    $size: (small: 16px, normal: 24px, large: 32px);
+    $default-size: map-get($size, normal);
+
+    font-size: $default-size;
+    width: $default-size;
+    height: $default-size;
+    overflow: hidden;
+
+    @each $key, $value in $size {
+        &-#{$key} {
+            font-size: $value;
+            width: $value;
+            height: $value;
+            overflow: hidden;
+        }
+    }
+}
+
+.m-list  {
+    $padding-x: (small: 8px, normal: 10px, large: 20px);
+    $default-padding-x: map-get($padding-x, normal);
+    $padding-y: (small: 8px, normal: 10px, large: 20px);
+    $default-padding-y: map-get($padding-y, normal);
+
+    border-radius: var(--m-s-br-3);
+    overflow: hidden;
+
+    .m-item {
+        padding: $default-padding-y $default-padding-x;
+    }
+    @each $key, $value in $padding-y {
+        .m-item-#{$key} {
+            padding: $value map-get($padding-x, $key);
+        }
+    }
+}
+
 .m-article {
     $prefix: '.m-article';
+    $item: '.m-article-item';
+    background-color: var(--m-c-bg-1);
+
+    #{$item} {
+        &:hover {
+            background-color: var(--m-c-bg-2);
+        }
+    }
+    #{$item} + #{$item} {
+        border-top: 1px solid var(--m-c-bd-1);
+    }
 
     &-title {
         color: var(--vp-c-text-1);
         font-size: var(--m-s-text-1);
+        font-weight: var(--m-s-tw-1);
+        line-height: var(--m-s-lh-1);
     }
 
     &-sub-title {
         color: var(--vp-c-text-2);
         font-size: var(--m-s-text-2);
+        font-weight: var(--m-s-tw-2);
+        line-height: var(--m-s-lh-2);
     }
 
     &-title,
@@ -42,6 +95,7 @@
     &-desc {
         color: var(--vp-c-text-3);
         font-size: var(--m-s-text-3);
+        line-height: var(--m-s-lh-2);
     }
 
     &-tag {
