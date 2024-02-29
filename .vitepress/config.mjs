@@ -16,6 +16,7 @@ export default (data) => {
     srcDir: "./src",
     assetsDir: './assets',
     outDir: './docs',
+    base: '/notes',
 
     sitemap: {
       hostname: 'https://notes.chdl.fun',
