@@ -26,7 +26,7 @@ useActiveAnchor(container, marker)
 
 <template>
   <div
-    class="VPDocAsideOutline"
+    class="VPDocAsideOutline m-container"
     :class="{ 'has-outline': headers.length > 0 }"
     ref="container"
     role="navigation"

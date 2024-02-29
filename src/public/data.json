@@ -1,5 +1,16 @@
 {
-    "root": "data",
-    "name": "李白",
-    "content": "# hello, word\n- 1\n- 2"
+    "files": [
+        {
+            "label": "问答",
+            "value": ["qa"]
+        },
+        {
+            "label": "热点文章",
+            "value": ["articles"]
+        },
+        {
+            "label": "全部",
+            "value": ["all"]
+        }
+    ]
 }

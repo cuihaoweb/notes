@@ -18,8 +18,6 @@ const { frontmatter } = useData()
             <Detail v-else-if="frontmatter.layout === 'detail'"></Detail>
             <Doc v-else></Doc>
         </main>
-
-        <ElRow style="padding: 20px 0;" justify="center">footer</ElRow>
     </div>
 </template>
 

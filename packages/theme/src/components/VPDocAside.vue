@@ -8,19 +8,19 @@ const { theme } = useData()
 
 <template>
   <div class="VPDocAside">
-    <slot name="aside-top" />
+    <!-- <slot name="aside-top" /> -->
 
-    <slot name="aside-outline-before" />
+    <!-- <slot name="aside-outline-before" /> -->
     <VPDocAsideOutline />
-    <slot name="aside-outline-after" />
+    <!-- <slot name="aside-outline-after" /> -->
 
     <div class="spacer" />
 
-    <slot name="aside-ads-before" />
+    <!-- <slot name="aside-ads-before" /> -->
     <VPDocAsideCarbonAds v-if="theme.carbonAds" :carbon-ads="theme.carbonAds" />
-    <slot name="aside-ads-after" />
+    <!-- <slot name="aside-ads-after" /> -->
 
-    <slot name="aside-bottom" />
+    <!-- <slot name="aside-bottom" /> -->
   </div>
 </template>
 

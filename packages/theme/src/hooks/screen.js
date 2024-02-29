@@ -1,5 +1,5 @@
-import { onBeforeUnmount, shallowRef } from 'vue';
-import { throttledWatch } from '@vueuse/core';
+import { onBeforeUnmount, shallowRef, watch } from 'vue';
+import {useThrottleFn, useDebounceFn } from '@vueuse/core';
 import { inBrowser } from 'vitepress';
 
 /**
@@ -9,18 +9,20 @@ import { inBrowser } from 'vitepress';
 export function useBoundingClientRect(domRef) {
     const height = shallowRef({});
 
+    const handleResize = useDebounceFn((domRef) => {
+        const el = domRef.value?.$el || domRef.value;
+        if (!el) return;
+        const info = el.getBoundingClientRect();
+        height.value = info;
+    }, 30, {maxWait: 60})
+    const handlerResize = () => handleResize(domRef);
+
     if (inBrowser) {
-        throttledWatch(domRef, handleResize, {throttle: 20, immediate: true})
-        window.addEventListener('resize', handleResize);
+        watch(domRef, handlerResize, {immediate: true})
+        window.addEventListener('resize', handlerResize);
         onBeforeUnmount(() => {
             window.removeEventListener('resize', handleResize)
         })
-    }
-
-    function handleResize() {
-        if (!domRef.value) return;
-        const info = domRef.value.getBoundingClientRect();
-        height.value = info;
     }
 
     return height;

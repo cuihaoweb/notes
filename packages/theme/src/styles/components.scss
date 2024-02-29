@@ -43,11 +43,11 @@
     border-radius: var(--m-s-br-3);
     overflow: hidden;
 
-    .m-item {
+    .m-list-item {
         padding: $default-padding-y $default-padding-x;
     }
     @each $key, $value in $padding-y {
-        .m-item-#{$key} {
+        .m-list-item-#{$key} {
             padding: $value map-get($padding-x, $key);
         }
     }
@@ -101,5 +101,22 @@
     &-tag {
         color: var(--vp-c-text-3);
         font-size: var(--m-s-text-3);
+    }
+}
+
+.m-container {
+    $paddings: (small: 12px, normal: 20px, large: 32px);
+    $border-radius: (small: var(--m-s-br-3), normal: var(--m-s-br-2), large: var(--m-s-br-1));
+    $default-padding: map-get($paddings, normal);
+    $default-border-radius: map-get($border-radius, normal);
+
+    padding: $default-padding;
+    border-radius: $default-border-radius;
+
+    @each $key, $value in $paddings {
+        &-#{$key} {
+            padding: $value;
+            border-radius: map-get($map: $border-radius, $key: $key);
+        }
     }
 }

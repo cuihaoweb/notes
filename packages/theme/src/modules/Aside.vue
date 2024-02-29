@@ -1,24 +1,13 @@
 <script setup>
-import {ElAffix} from 'element-plus';
 import Author from './Author.vue';
-// import {onMounted, ref} from 'vue';
-
-// const rootRef = ref(null);
-// const affixRef = ref(null);
-// const affixOffset = ref(0);
-
-// onMounted(() => {
-//     const {top} = rootRef.value.getBoundingClientRect();
-//     affixOffset.value = top;
-//     affixRef.value.update();
-//     affixRef.value.updateRoot();
-// })
+import OutLine from './OutLine.vue';
 </script>
 
 
 <template>
-    <aside class="aside-root">
+    <aside class="aside-root space-col">
         <Author></Author>
+        <OutLine></OutLine>
     </aside>
 </template>
 
