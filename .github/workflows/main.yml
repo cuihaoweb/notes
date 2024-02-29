@@ -30,9 +30,10 @@ jobs:
           pnpm i --no-frozen-lockfile
           npm run build
           shopt -s extglob
+          rm -rf .vitepress
           rm -rf !(docs)
 
-      - name: Deploy
+      - name: Deploy rb branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: .
