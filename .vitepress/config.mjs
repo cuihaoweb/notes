@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress';
 import ElementPlus from 'unplugin-element-plus/vite'
 
+const isProd = process.env.NODE_ENV === 'production';
+
 export default (data) => {
   const config = defineConfig({
     vite: {
@@ -30,12 +32,12 @@ export default (data) => {
         'link', {
           rel: 'icon',
           type: "image/svg+xml",
-          href: '/logo.png'
+          href: '/notes/logo.png'
         }
       ]
     ],
     themeConfig: {
-      logo: '/logo.png',
+      logo: isProd ? '/notes/logo.png' : '/notes/logo.png',
       search: {
         provider: 'local'
       },
