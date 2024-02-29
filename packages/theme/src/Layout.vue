@@ -5,8 +5,16 @@ import Home from './views/Home.vue'
 import Detail from './views/Detail.vue'
 import Doc from './views/Doc.vue';
 import Header from './modules/Header.vue'
+import {data as articleList} from './dataList.data.js'
+import {data as globalData} from './global.data.js'
+import {store} from './store';
 
 const { frontmatter } = useData()
+
+Object.assign(store, {
+    articleList: articleList.map(item => ({...item.frontmatter, url: item.url})),
+    ...globalData
+});
 </script>
 
 <template>

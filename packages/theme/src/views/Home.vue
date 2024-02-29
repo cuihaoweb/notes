@@ -1,6 +1,5 @@
 <script setup>
 import {ElCol, ElPagination} from 'element-plus'
-import {data as articleList} from '../dataList.data.js'
 import Link from '../components/Link.vue';
 import Aside from '../modules/Aside.vue';
 import { computed, markRaw, ref } from 'vue';
@@ -14,18 +13,13 @@ const pageSize = markRaw(8);
 const pageIndex = ref(1);
 
 const fitCategoryArticleList = computed(() => {
-    const retList = articleList.map(item => {
-        const {frontmatter, url} = item;
+    const retList = store.articleList.map(item => {
+        const {url} = item || {};
         const [_, category] = url.match(/\/(.*?)\/(?:.*?\.html)$/i);
         const articleCategory = [].concat(store.curArticleCategory)
 
         if (['all', category].find((item) => articleCategory.includes(item))) {
-            return {
-                title: frontmatter.title,
-                description: frontmatter.description,
-                coverImage: frontmatter.coverImage,
-                url
-            }
+            return {...item}
         }
     }).filter(Boolean);
     return retList;
@@ -53,7 +47,6 @@ function handlePaginationChange(index) {
                 class="aside-wrapper w-full scroll-col space-col"
                 :style="{height: `calc(100vh - var(--m-layout-content-margin) - ${asideSizeInfo.y}px)`}"
             >
-                <Aside></Aside>
                 <ArticleCategory></ArticleCategory>
             </ElCol>
         </ElCol>
@@ -85,7 +78,6 @@ function handlePaginationChange(index) {
                 class="aside-wrapper w-full scroll-col space-col"
                 :style="{height: `calc(100vh - var(--m-layout-content-margin) - ${asideSizeInfo.y}px)`}"
             >
-                <Aside></Aside>
                 <Aside></Aside>
             </ElCol>
         </ElCol>

@@ -10,21 +10,32 @@ function handleClick(item, index) {
 
 <template>
     <div class="article-category-root">
-        <ul class="m-article m-list" >
-            <li
-                v-for="(item, index) in data.files"
-                :key="index"
-                :data-value="item.value"
-                class="m-article-item m-list-item"
-                @click="handleClick(item, index)"
-            >{{ item.label }}</li>
-        </ul>
+        <div class="m-container-small">
+            <h3 class="m-article-sub-title">文章分类</h3>
+            <ul class="m-article m-list" >
+                <li
+                    v-for="(item, index) in data.files"
+                    :key="index"
+                    :data-value="item.value"
+                    class="m-article-item m-article-desc m-list-item"
+                    @click="handleClick(item, index)"
+                >{{ item.label }}</li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .article-category-root {
     padding: 0 10px;
+
+    .m-container-small {
+        background-color: var(--m-c-bg-1);
+    }
+    
+    .m-article-title {
+        background-color: var(--m-c-bg-1);
+    }
 
     .m-article-item {
         cursor: pointer;

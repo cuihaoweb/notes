@@ -1,0 +1,48 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install and Build
+        run: |
+          pnpm i --no-frozen-lockfile
+          npm run build
+          shopt -s extglob
+          rm -rf !(dist)
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          branch: rb
+
+      - name: Mirror to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_DEPLOY_KEY }}
+        with:
+          source-repo: "git@github.com:cuihaoweb/notes.git"
+          destination-repo: "git@gitee.com:cui_hao/notes.git"
