@@ -15,4 +15,4 @@ steps:
     commands:
       - pwd
       - ls -l
-      - cp . /home/cuihao/nginx/assets
+      - cp -r . /home/cuihao/nginx/assets/notes
