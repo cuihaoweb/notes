@@ -13,5 +13,6 @@ trigger:
 steps:
   - name: build
     commands:
+      - rm -rf /home/cuihao/nginx/assets/notes
       - mkdir -p /home/cuihao/nginx/assets/notes
       - cp -r . /home/cuihao/nginx/assets/notes
