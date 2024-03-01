@@ -13,6 +13,5 @@ trigger:
 steps:
   - name: build
     commands:
-      - pwd
-      - ls -l
+      - mkdir -p /home/cuihao/nginx/assets/notes
       - cp -r . /home/cuihao/nginx/assets/notes
