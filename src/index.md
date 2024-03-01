@@ -6,7 +6,8 @@
     head: [
         ["meta", { name: "keywords", content: "CH的博客,技术,文章,经验,灵感,知识" }],
         ["meta", { name: "google-site-verification", content: "fs5EybByxqvIchWyU4mIpxHS8HJrFYX8flIiBwdT6ps" }],
-        ["meta", { name: "baidu-site-verification", content: "codeva-0zzmlYv93f" }]
+        ["meta", { name: "baidu-site-verification", content: "codeva-0zzmlYv93f" }],
+        ["meta", { name: "msvalidate.01", content: "379213741F79A418B1EB9B6B4FF1434A" }]
     ]
 }
 ---
