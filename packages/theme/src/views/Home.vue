@@ -2,15 +2,18 @@
 import {ElCol, ElPagination} from 'element-plus'
 import Link from '../components/Link.vue';
 import Aside from '../modules/Aside.vue';
-import { computed, markRaw, ref } from 'vue';
+import { computed, markRaw, ref, toRef } from 'vue';
 import {useBoundingClientRect} from '../hooks/screen';
 import ArticleCategory from '../modules/ArticleCategory.vue';
 const asideRef = ref(null);
 const asideSizeInfo = useBoundingClientRect(asideRef);
 import {store} from '../store';
+import { classes } from '../support/util';
 
 const pageSize = markRaw(8);
 const pageIndex = ref(1);
+const device = toRef(store, 'device');
+
 
 const fitCategoryArticleList = computed(() => {
     const retList = store.articleList.map(item => {
@@ -40,8 +43,15 @@ function handlePaginationChange(index) {
 
 
 <template>
-    <div class="home-root flex-row flex-start w-full">
-        <ElCol :xs="0" :sm="5">
+    <div
+        :class="classes('home-root w-full', 'pc flex-row flex-start', 'h5 flex-col')"
+    >
+        <div v-if="device.isH5" class="category-wrap w-full">
+            <div class="category-wrap-fixed">
+                <ArticleCategory></ArticleCategory>
+            </div>
+        </div>
+        <ElCol v-else :xs="24" :sm="5">
             <ElCol
                 :sm="5"
                 class="aside-wrapper w-full scroll-col space-col"
@@ -51,7 +61,7 @@ function handlePaginationChange(index) {
             </ElCol>
         </ElCol>
 
-        <ElCol :xs="24" :sm="14" class="content-box flex-col">
+        <ElCol :xs="24" :sm="14" :class="classes('content-box flex-col', '', 'full')">
             <ul class="m-article m-list">
                 <li class="m-list-item-large m-article-item flex-row flex-start w-full"  v-for="item in realArticleList" :key="item.url">
                     <Link :href="item.url" class="flex-1">
@@ -86,6 +96,8 @@ function handlePaginationChange(index) {
 
 <style lang="scss" scoped>
 .home-root {
+    --m-home-category-height: 45px;
+
     margin: var(--m-layout-content-margin) auto;
 
     .content-box {
@@ -99,6 +111,19 @@ function handlePaginationChange(index) {
 
     .aside-wrapper {
         position: fixed;
+    }
+
+    &.h5 {
+        .category-wrap {
+            height: var(--m-home-category-height);
+
+            .category-wrap-fixed {
+                position: fixed;
+                left: 0;
+                right: 0;
+                height: var(--m-home-category-height);
+            }
+        }
     }
 }
 </style>

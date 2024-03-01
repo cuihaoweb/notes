@@ -7,13 +7,16 @@ import Doc from './views/Doc.vue';
 import Header from './modules/Header.vue'
 import {data as articleList} from './dataList.data.js'
 import {data as globalData} from './global.data.js'
+import {useDevice} from './hooks/device';
 import {store} from './store';
 
 const { frontmatter } = useData()
+const device = useDevice();
 
 Object.assign(store, {
     articleList: articleList.map(item => ({...item.frontmatter, url: item.url})),
-    ...globalData
+    device,
+    ...globalData,
 });
 </script>
 

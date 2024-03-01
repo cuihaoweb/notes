@@ -43,4 +43,10 @@ const asideSizeInfo = useBoundingClientRect(asideRef);
         position: fixed;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        border-radius: unset;
+    }
+}
 </style>
