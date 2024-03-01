@@ -32,7 +32,6 @@ function handleClick(item, index) {
 <style lang="scss" scoped>
 .article-category-root {
     .article-list {
-        outline: 1px solid red;
     }
 
     &.h5 {
