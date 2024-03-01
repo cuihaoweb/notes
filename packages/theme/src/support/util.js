@@ -72,8 +72,6 @@ export function normalizeLink(url) {
 }
 
 export function useClasses(...args) {
-    // const retList = ref([]);
-    
     return computed(() => {
         if (args.length === 1) {
             return args[0];
