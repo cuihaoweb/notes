@@ -9,9 +9,6 @@ function handleResize() {
     deviceInfo.isPc = window.innerWidth > 768;
     deviceInfo.isH5 = !deviceInfo.isPc;
 }
-if (inBrowser) {
-    handleResize();
-}
 
 /**
  * 获取设备信息
@@ -20,6 +17,7 @@ if (inBrowser) {
 export function useDevice() {
 
     onMounted(() => {
+        handleResize();
         window.addEventListener('resize', handleResize);
     })
     onUnmounted(() => {
