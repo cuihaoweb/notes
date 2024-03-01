@@ -9,12 +9,18 @@ import {data as articleList} from './dataList.data.js'
 import {data as globalData} from './global.data.js'
 import {useDevice} from './hooks/device';
 import {store} from './store';
+import dayjs from 'dayjs';
 
 const { frontmatter } = useData()
 const device = useDevice();
 
 Object.assign(store, {
-    articleList: articleList.map(item => ({...item.frontmatter, url: item.url})),
+    articleList: articleList.map(item => ({
+        ...item.frontmatter,
+        url: item.url,
+        lastUpdated: item.lastUpdated,
+        lastUpdateTime: dayjs(item.lastUpdated).format('YYYY-MM-DD HH:mm'),
+    })),
     device,
     ...globalData,
 });

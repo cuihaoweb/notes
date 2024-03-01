@@ -20,6 +20,9 @@ importers:
       '@vueuse/integrations':
         specifier: ^10.8.0
         version: 10.8.0(focus-trap@7.5.4)(vue@3.4.20)
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
       element-plus:
         specifier: ^2.5.6
         version: 2.5.6(vue@3.4.20)
@@ -55,11 +58,7 @@ importers:
         specifier: 1.0.0-rc.44
         version: 1.0.0-rc.44(@algolia/client-search@4.22.1)(sass@1.71.1)(search-insights@2.13.0)
 
-  packages/theme:
-    dependencies:
-      useFocusTrap:
-        specifier: link:@vueuse/integrations/useFocusTrap
-        version: link:@vueuse/integrations/useFocusTrap
+  packages/theme: {}
 
 packages:
 

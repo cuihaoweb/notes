@@ -1,11 +1,19 @@
 <script setup>
+import {useData} from 'vitepress';
 import {ElCol} from 'element-plus'
 import Aside from '../modules/Aside.vue';
 import {useBoundingClientRect} from '../hooks/screen';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import dayjs from 'dayjs'
 
+const {title, frontmatter, page} = useData();
 const asideRef = ref(null);
 const asideSizeInfo = useBoundingClientRect(asideRef);
+
+const datetime = computed(() => {
+    const date = page.value.lastUpdated ? new Date(page.value.lastUpdated) : new Date();
+    return dayjs(date).format('YYYY-MM-DD HH:mm');
+});
 </script>
 
 <template>
@@ -14,6 +22,10 @@ const asideSizeInfo = useBoundingClientRect(asideRef);
             :xs="24" :sm="{span: 18, offset: 1}" :md="{span: 16, offset: 3}"
             class="content-wrapper m-container-large"
         >
+            <div class="page-info-wrap flex-col">
+                <h1 class="doc-title">{{ title }}</h1>
+                <span class="datetime">更新于：{{ datetime }}</span>
+            </div>
             <Content class="vp-doc"></Content>
         </ElCol>
 
@@ -36,7 +48,22 @@ const asideSizeInfo = useBoundingClientRect(asideRef);
 
     .content-wrapper {
         background-color: var(--m-c-bg-1);
-        min-height: 120%;
+        min-height: 110%;
+
+        .page-info-wrap {
+            padding: 20px 0 100px;
+
+            .doc-title {
+                text-align: center;
+                line-height: 1.5;
+                font-size: 32px;
+                font-weight: 700;
+            }
+
+            .datetime {
+                margin: 10px 0;
+            }
+        }
     }
 
     .aside-wrapper {
@@ -44,9 +71,15 @@ const asideSizeInfo = useBoundingClientRect(asideRef);
     }
 }
 
-@media screen and (max-width: 768px) {
-    .content-wrapper {
-        border-radius: unset;
+@media (max-width: 768px) {
+    .home-root  {
+        .content-wrapper {
+            border-radius: unset;
+
+            .page-info-wrap {
+                padding: 10px 0 40px;
+            }
+        }
     }
 }
 </style>

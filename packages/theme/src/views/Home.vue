@@ -67,6 +67,7 @@ function handlePaginationChange(index) {
                     <Link :href="item.url" class="flex-1">
                         <h3 class="m-article-title">{{ item.title }}</h3>
                         <p class="m-article-desc">{{ item.description }}</p>
+                        <span class="m-article-tag">{{ item.lastUpdateTime }}</span>
                     </Link>
                     <img class="m-img" v-if="item.coverImage" :src="item.coverImage" />
                 </li>

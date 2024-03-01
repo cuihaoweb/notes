@@ -1,9 +1,10 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "ch-note"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+{
+    layout: 'home',
+    title: 'CH的博客',
+    description: '欢迎来到CH的博客！这个博客涵盖了各种主题，包括技术、旅行、摄影和生活分享。在这里，您将找到有趣而实用的文章，以及作者的个人见解和经验。探索CH的博客，开拓视野，获得灵感和知识。',
+    head: [
+        ["meta", { name: "keywords", content: "CH的博客,技术,文章,经验,灵感,知识" }]
+    ]
+}
 ---
