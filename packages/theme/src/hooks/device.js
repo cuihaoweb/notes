@@ -5,16 +5,17 @@ const deviceInfo = reactive({
     isPc: false,
     isH5: true
 });
-function handleResize() {
-    deviceInfo.isPc = window.innerWidth > 768;
-    deviceInfo.isH5 = !deviceInfo.isPc;
-}
 
 /**
  * 获取设备信息
  * @return {typeof deviceInfo}
  */
 export function useDevice() {
+    function handleResize() {
+        deviceInfo.isPc = window.innerWidth > 768;
+        deviceInfo.isH5 = !deviceInfo.isPc;
+        console.log(`🚀 ~ file: device.js:10 ~ handleResize ~ deviceInfo:`, deviceInfo);
+    }
 
     onMounted(() => {
         handleResize();
