@@ -13,4 +13,6 @@ trigger:
 steps:
   - name: build
     commands:
+      - pwd
+      - ls -l
       - cp . /home/cuihao/nginx/assets
