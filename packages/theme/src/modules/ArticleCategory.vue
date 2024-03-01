@@ -16,7 +16,7 @@ function handleClick(item, index) {
     <div  :class="useClasses('article-category-root', 'pc', 'h5 full')">
         <div :class="useClasses('', 'm-container-small', 'full')">
             <h3 v-if="device.isPc" class="m-article-sub-title">文章分类</h3>
-            <ul :class="useClasses('', 'm-article m-list', 'full flex-row')" >
+            <ul :class="useClasses('article-list', 'm-article m-list', 'full flex-row')" >
                 <li
                     v-for="(item, index) in data.files"
                     :key="index"
@@ -31,6 +31,10 @@ function handleClick(item, index) {
 
 <style lang="scss" scoped>
 .article-category-root {
+    .article-list {
+        outline: 1px solid red;
+    }
+
     &.h5 {
         background-color: var(--m-c-bg-1);
 
