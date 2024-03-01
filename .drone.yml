@@ -1,0 +1,16 @@
+kind: pipeline
+type: exec
+name: notes
+
+platform:
+  os: linux
+  arch: amd64
+
+trigger:
+  branch:
+    - rb
+
+steps:
+  - name: build
+    commands:
+      - cp . /home/cuihao/nginx/assets
