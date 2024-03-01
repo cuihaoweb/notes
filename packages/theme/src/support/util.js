@@ -1,5 +1,6 @@
 import { useData, withBase } from 'vitepress';
 import {store} from '../store';
+import { ref } from 'vue';
 
 export const EXTERNAL_URL_RE = /^(?:[a-z]+:|\/\/)/i;
 
@@ -70,15 +71,18 @@ export function normalizeLink(url) {
     return withBase(normalizedPath);
 }
 
-export function classes(...args) {
+export function useClasses(...args) {
+    const retList = ref([]);
+
     if (args.length === 1) {
-        return args[0];
+        retList.value = args[0];
     }
     if (args.length === 3) {
-        return [
+        retList.value = [
             args[0],
             store.device.isPc && args[1],
             store.device.isH5 && args[2],
         ].filter(Boolean);
     }
+    return retList.value;
 }

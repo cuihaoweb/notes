@@ -26,10 +26,10 @@ const { hasSidebar } = useSidebar()
 const { hasLocalNav } = useLocalNav()
 const { frontmatter } = useData()
 
-const classes = ref<Record<string, boolean>>({})
+const useClasses = ref<Record<string, boolean>>({})
 
 watchPostEffect(() => {
-  classes.value = {
+  useClasses.value = {
     'has-sidebar': hasSidebar.value,
     'has-local-nav': hasLocalNav.value,
     top: frontmatter.value.layout === 'home' && y.value === 0,
@@ -38,7 +38,7 @@ watchPostEffect(() => {
 </script>
 
 <template>
-  <div class="VPNavBar" :class="classes">
+  <div class="VPNavBar" :class="useClasses">
     <div class="wrapper">
       <div class="container">
         <div class="title">

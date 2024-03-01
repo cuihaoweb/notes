@@ -1,7 +1,7 @@
 <script setup>
 import { toRef } from 'vue';
 import {data} from '../global.data.js'
-import {classes} from '../support/util';
+import {useClasses} from '../support/util';
 import { store } from '../store';
 
 const device = toRef(store, 'device')
@@ -13,15 +13,15 @@ function handleClick(item, index) {
 </script>
 
 <template>
-    <div  :class="classes('article-category-root', 'pc', 'h5 full')">
-        <div :class="classes('', 'm-container-small', 'full')">
+    <div  :class="useClasses('article-category-root', 'pc', 'h5 full')">
+        <div :class="useClasses('', 'm-container-small', 'full')">
             <h3 v-if="device.isPc" class="m-article-sub-title">文章分类</h3>
-            <ul :class="classes('', 'm-article m-list', 'full flex-row')" >
+            <ul :class="useClasses('', 'm-article m-list', 'full flex-row')" >
                 <li
                     v-for="(item, index) in data.files"
                     :key="index"
                     :data-value="item.value"
-                    :class="classes('item h-full m-article-desc', 'm-article-item m-list-item', 'flex-row')"
+                    :class="useClasses('item h-full m-article-desc', 'm-article-item m-list-item', 'flex-row')"
                     @click="handleClick(item, index)"
                 >{{ item.label }}</li>
             </ul>

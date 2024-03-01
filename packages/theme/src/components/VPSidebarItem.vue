@@ -30,7 +30,7 @@ const textTag = computed(() => {
 
 const itemRole = computed(() => (isLink.value ? undefined : 'button'))
 
-const classes = computed(() => [
+const useClasses = computed(() => [
   [`level-${props.depth}`],
   { collapsible: collapsible.value },
   { collapsed: collapsed.value },
@@ -52,7 +52,7 @@ function onCaretClick() {
 </script>
 
 <template>
-  <component :is="sectionTag" class="VPSidebarItem" :class="classes">
+  <component :is="sectionTag" class="VPSidebarItem" :class="useClasses">
     <div
       v-if="item.text"
       class="item"

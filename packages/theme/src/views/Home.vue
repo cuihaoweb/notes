@@ -8,7 +8,7 @@ import ArticleCategory from '../modules/ArticleCategory.vue';
 const asideRef = ref(null);
 const asideSizeInfo = useBoundingClientRect(asideRef);
 import {store} from '../store';
-import { classes } from '../support/util';
+import { useClasses } from '../support/util';
 
 const pageSize = markRaw(8);
 const pageIndex = ref(1);
@@ -44,7 +44,7 @@ function handlePaginationChange(index) {
 
 <template>
     <div
-        :class="classes('home-root w-full', 'pc flex-row flex-start', 'h5 flex-col')"
+        :class="useClasses('home-root w-full', 'pc flex-row flex-start', 'h5 flex-col')"
     >
         <div v-if="device.isH5" class="category-wrap w-full">
             <div class="category-wrap-fixed">
@@ -61,7 +61,7 @@ function handlePaginationChange(index) {
             </ElCol>
         </ElCol>
 
-        <ElCol :xs="24" :sm="14" :class="classes('content-box flex-col', '', 'full')">
+        <ElCol :xs="24" :sm="14" :class="useClasses('content-box flex-col', '', 'full')">
             <ul class="m-article m-list">
                 <li class="m-list-item-large m-article-item flex-row flex-start w-full"  v-for="item in realArticleList" :key="item.url">
                     <Link :href="item.url" class="flex-1">

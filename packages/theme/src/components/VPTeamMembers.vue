@@ -12,11 +12,11 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'medium'
 })
 
-const classes = computed(() => [props.size, `count-${props.members.length}`])
+const useClasses = computed(() => [props.size, `count-${props.members.length}`])
 </script>
 
 <template>
-  <div class="VPTeamMembers" :class="classes">
+  <div class="VPTeamMembers" :class="useClasses">
     <div class="container">
       <div v-for="member in members" :key="member.name" class="item">
         <VPTeamMembersItem :size="size" :member="member" />

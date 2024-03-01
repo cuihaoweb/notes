@@ -43,7 +43,7 @@ const emptyAndNoSidebar = computed(() => {
   return empty.value && !hasSidebar.value
 })
 
-const classes = computed(() => {
+const useClasses = computed(() => {
   return {
     VPLocalNav: true,
     'has-sidebar': hasSidebar.value,
@@ -56,7 +56,7 @@ const classes = computed(() => {
 <template>
   <div
     v-if="frontmatter.layout !== 'home' && (!emptyAndNoSidebar || y >= navHeight)"
-    :class="classes"
+    :class="useClasses"
   >
     <div class="container">
       <button
