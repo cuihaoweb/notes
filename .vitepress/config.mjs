@@ -21,7 +21,7 @@ export default (data) => {
     base: '/notes',
 
     sitemap: {
-      hostname: 'https://notes.chdl.fun',
+      hostname: 'https://notes.chdl.fun/notes/',
     },
 
     // 页面布局相关
