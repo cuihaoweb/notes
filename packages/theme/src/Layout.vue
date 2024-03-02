@@ -21,8 +21,7 @@ Object.assign(store, {
         lastUpdated: item.lastUpdated,
         lastUpdateTime: dayjs(item.lastUpdated).format('YYYY-MM-DD HH:mm'),
     })),
-    device,
-    ...globalData,
+    ...globalData
 });
 </script>
 

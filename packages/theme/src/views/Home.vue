@@ -2,17 +2,17 @@
 import {ElCol, ElPagination} from 'element-plus'
 import Link from '../components/Link.vue';
 import Aside from '../modules/Aside.vue';
-import { computed, markRaw, ref, toRef } from 'vue';
+import { computed, markRaw, ref, toRef, toRefs } from 'vue';
 import {useBoundingClientRect} from '../hooks/screen';
 import ArticleCategory from '../modules/ArticleCategory.vue';
 const asideRef = ref(null);
 const asideSizeInfo = useBoundingClientRect(asideRef);
 import {store} from '../store';
-import { useClasses } from '../support/util';
+import { useDevice } from '../hooks/device';
 
+const {isPc, isH5} = toRefs(useDevice());
 const pageSize = markRaw(8);
 const pageIndex = ref(1);
-const device = toRef(store, 'device');
 
 
 const fitCategoryArticleList = computed(() => {
@@ -44,9 +44,9 @@ function handlePaginationChange(index) {
 
 <template>
     <div
-        :class="useClasses('home-root w-full', 'pc flex-row flex-start', 'h5 flex-col')"
+        :class="['home-root w-full', isPc ? 'pc flex-row flex-start' : 'h5 flex-col']"
     >
-        <div v-if="device.isH5" class="category-wrap w-full">
+        <div v-if="isH5" class="category-wrap w-full">
             <div class="category-wrap-fixed">
                 <ArticleCategory></ArticleCategory>
             </div>
@@ -61,7 +61,7 @@ function handlePaginationChange(index) {
             </ElCol>
         </ElCol>
 
-        <ElCol :xs="24" :sm="14" :class="useClasses('content-box flex-col', '', 'full')">
+        <ElCol :xs="24" :sm="14" :class="['content-box flex-col', isH5 && 'full']">
             <ul class="m-article m-list">
                 <li class="m-list-item-large m-article-item flex-row flex-start w-full"  v-for="item in realArticleList" :key="item.url">
                     <Link :href="item.url" class="flex-1">

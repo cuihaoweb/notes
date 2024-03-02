@@ -1,0 +1,16 @@
+{
+    "files": [
+        {
+            "label": "css",
+            "value": ["css"]
+        },
+        {
+            "label": "Docker",
+            "value": ["docker"]
+        },
+        {
+            "label": "全部",
+            "value": ["all"]
+        }
+    ]
+}

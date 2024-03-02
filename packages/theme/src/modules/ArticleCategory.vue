@@ -1,10 +1,10 @@
 <script setup>
 import { toRef } from 'vue';
 import {data} from '../global.data.js'
-import {useClasses} from '../support/util';
 import { store } from '../store';
+import { useDevice } from '../hooks/device';
 
-const device = toRef(store, 'device')
+const isPc = toRef(useDevice(), 'isPc');
 
 function handleClick(item, index) {
     store.curArticleCategory = item.value;
@@ -13,15 +13,15 @@ function handleClick(item, index) {
 </script>
 
 <template>
-    <div  :class="useClasses('article-category-root', 'pc', 'h5 full')">
-        <div :class="useClasses('', 'm-container-small', 'full')">
-            <h3 v-if="device.isPc" class="m-article-sub-title">文章分类</h3>
-            <ul :class="useClasses('article-list', 'm-article m-list', 'full flex-row')" >
+    <div  :class="['article-category-root', isPc ? 'pc' : 'h5 full']">
+        <div :class="[isPc ? 'm-container-small' : 'full']">
+            <h3 v-if="isPc" class="m-article-sub-title">文章分类</h3>
+            <ul :class="['article-list', isPc ? 'm-article m-list' : 'full flex-row']" >
                 <li
                     v-for="(item, index) in data.files"
                     :key="index"
                     :data-value="item.value"
-                    :class="useClasses('item h-full m-article-desc', 'm-article-item m-list-item', 'flex-row')"
+                    :class="['item h-full m-article-desc', isPc ? 'm-article-item m-list-item' : 'flex-row']"
                     @click="handleClick(item, index)"
                 >{{ item.label }}</li>
             </ul>
@@ -31,9 +31,6 @@ function handleClick(item, index) {
 
 <style lang="scss" scoped>
 .article-category-root {
-    .article-list {
-    }
-
     &.h5 {
         background-color: var(--m-c-bg-1);
 

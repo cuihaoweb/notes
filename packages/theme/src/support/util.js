@@ -70,18 +70,3 @@ export function normalizeLink(url) {
 
     return withBase(normalizedPath);
 }
-
-export function useClasses(...args) {
-    return computed(() => {
-        if (args.length === 1) {
-            return args[0];
-        }
-        if (args.length === 3) {
-            return [
-                args[0],
-                store.device.isPc && args[1],
-                store.device.isH5 && args[2],
-            ].filter(Boolean);
-        }
-    }).value;
-}
