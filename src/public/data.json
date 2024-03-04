@@ -1,7 +1,11 @@
 {
     "files": [
         {
-            "label": "css",
+            "label": "React",
+            "value": ["react"]
+        },
+        {
+            "label": "Css",
             "value": ["css"]
         },
         {
